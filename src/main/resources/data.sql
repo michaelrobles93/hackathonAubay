@@ -1,0 +1,1 @@
+INSERT INTO USER  VALUES(1, 'Aubay', 'aubay@aubay.com', 'Lisboa', 'Aubay SA', '$2a$10$4WjkJajq6FfV.pwI.bYp0.44ODl3y6WDOdcWDoZpif1DMczYak2XC', '999888777', '13', true);

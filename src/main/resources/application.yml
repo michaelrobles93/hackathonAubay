@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: "AubayHackathon"
+  #H2
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  #Datasource
+  datasource:
+    url: jdbc:h2:mem:~/h2;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+    jpa:
+      hibernate:
+        ddl-auto: update
+      database-platform: org.hibernate.dialect.H2Dialect
+#  datasource:
+#    url: jdbc:mysql://db4free.net/aubay_db
+#    username: aubilous
+#    password: 12345678
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#server:
+#  servlet:
+#    context-path: "/aubay"
+logging:
+  level:
+    ROOT: info
