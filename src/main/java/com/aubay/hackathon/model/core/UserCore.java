@@ -23,7 +23,7 @@ public class UserCore {
 
     private String phone;
 
-    private Long userStatus;
+    private boolean userStatus;
 
     private String password;
 

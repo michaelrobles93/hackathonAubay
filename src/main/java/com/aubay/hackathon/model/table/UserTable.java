@@ -38,7 +38,7 @@ public class UserTable {
     private String password;
 
     @NotNull
-    private Long userStatus;
+    private boolean userStatus;
 
     @NotNull
     private Long role;

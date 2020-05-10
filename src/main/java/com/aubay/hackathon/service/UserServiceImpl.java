@@ -41,7 +41,7 @@ public class UserServiceImpl implements IUserService {
     public UserCore save(UserCore userCore) {
 
         userCore.setRole(RoleEnum.GESTOR.getCode());
-        userCore.setUserStatus(1L);
+        userCore.setUserStatus(true);
         userCore.setPassword(bCryptPasswordEncoder.encode(userCore.getPassword()));
 
         return mapper.map(repository.save(mapper.map(userCore, UserTable.class)), UserCore.class);

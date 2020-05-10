@@ -3,6 +3,7 @@ package com.aubay.hackathon.config;
 import com.google.common.collect.Lists;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -30,8 +31,9 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     public Docket api() {
 
         return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any())
                 .build()
                 .securitySchemes(Lists.newArrayList(apiKey()))
@@ -70,8 +72,8 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     private ApiInfo apiInfo() {
 
         return new ApiInfoBuilder()
-                .title("Aubay Hackathon")
-                .description("Restfull Hackathon")
+                .title("Aubay Hackathon - Team A")
+                .description("ahead of innovation")
                 .build();
     }
 

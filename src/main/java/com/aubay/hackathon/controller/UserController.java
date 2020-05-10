@@ -52,4 +52,12 @@ public class UserController {
         UserCore userCore = mapper.map(userRequest, UserCore.class);
         return ResponseEntity.ok(mapper.map(userService.save(userCore), UserResponse.class));
     }
+
+    @PutMapping(value = "/{user_id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> updateUser(@PathVariable("user_id") Long userId, @RequestBody @Valid UserRequest userRequest){
+
+        UserCore userCore = mapper.map(userRequest, UserCore.class);
+        userCore.setId(userId);
+        return ResponseEntity.ok(mapper.map(userService.save(userCore), UserResponse.class));
+    }
 }

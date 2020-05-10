@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
+import static com.aubay.hackathon.constants.ApplicationConstant.REQUEST_END_POINT;
+
 @RestController
-@RequestMapping("/request")
+@RequestMapping(REQUEST_END_POINT)
 public class RequestController {
 
     private ISolicitationService solicitationService;
