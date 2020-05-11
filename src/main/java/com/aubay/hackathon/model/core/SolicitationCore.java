@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @Data
@@ -21,9 +21,9 @@ public class SolicitationCore {
 
     private Long managerId;
 
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
 
-    private LocalDate authorizationDate;
+    private LocalDateTime authorizationDate;
 
     private boolean isAuthorized;
 }

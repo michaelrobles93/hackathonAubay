@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
-import static com.aubay.hackathon.constants.ApplicationConstant.REQUEST_END_POINT;
+import static com.aubay.hackathon.constants.ApplicationConstant.SOLICITATION_END_POINT;
 
 @RestController
-@RequestMapping(REQUEST_END_POINT)
-public class RequestController {
+@RequestMapping(SOLICITATION_END_POINT)
+public class SolicitationController {
 
     private ISolicitationService solicitationService;
 
     private ModelMapper mapper;
 
     @Autowired
-    public RequestController(ISolicitationService solicitationService, ModelMapper mapper) {
+    public SolicitationController(ISolicitationService solicitationService, ModelMapper mapper) {
         this.solicitationService = solicitationService;
         this.mapper = mapper;
     }
@@ -40,8 +40,11 @@ public class RequestController {
     }
 
     @PutMapping(value = "/{solicitation_id}/manager", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateManagerRequest(@PathVariable("solicitation_id") Long solicitationId, @RequestBody @Valid SolicitationRequest solicitationRequest) {
+    public ResponseEntity<?> updateManagerRequest(@PathVariable("solicitation_id") Long solicitationId, @RequestBody SolicitationRequest solicitationRequest) {
 
+        if (solicitationRequest.getManagerId() == null) {
+            return ResponseEntity.badRequest().build();
+        }
         SolicitationCore solicitationCore = mapper.map(solicitationRequest, SolicitationCore.class);
         solicitationCore.setId(solicitationId);
         if (Optional.of(solicitationService.updateManager(solicitationCore)).isPresent()) {
@@ -52,7 +55,7 @@ public class RequestController {
     }
 
     @PutMapping(value = "/{solicitation_id}/authorize", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateAuthorizeRequest(@PathVariable("solicitation_id") Long solicitationId, @RequestBody @Valid SolicitationRequest solicitationRequest) {
+    public ResponseEntity<?> updateAuthorizeRequest(@PathVariable("solicitation_id") Long solicitationId, @RequestBody SolicitationRequest solicitationRequest) throws Exception {
 
         SolicitationCore solicitationCore = mapper.map(solicitationRequest, SolicitationCore.class);
         solicitationCore.setId(solicitationId);

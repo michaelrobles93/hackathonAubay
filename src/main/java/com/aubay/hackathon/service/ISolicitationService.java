@@ -8,5 +8,9 @@ public interface ISolicitationService {
 
     SolicitationCore updateManager(SolicitationCore solicitationCore);
 
-    SolicitationCore updateAuthorize(SolicitationCore solicitationCore);
+    SolicitationCore updateAuthorize(SolicitationCore solicitationCore) throws Exception;
+
+    Long getAllSolicitation();
+
+    Long getAllSolicitationAuthorized();
 }

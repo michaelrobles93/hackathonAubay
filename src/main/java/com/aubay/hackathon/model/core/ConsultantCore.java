@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -37,5 +38,9 @@ public class ConsultantCore {
 
     private boolean isAuthorized;
 
-    private LocalDate creationDate;
+    private Long views;
+
+    private LocalDateTime creationDate;
+
+    private LocalDateTime lastView;
 }

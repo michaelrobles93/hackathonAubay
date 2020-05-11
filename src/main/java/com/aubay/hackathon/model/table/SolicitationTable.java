@@ -11,12 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "REQUEST")
+@Entity(name = "REQUIREMENT")
 public class SolicitationTable {
 
     @Id
@@ -32,9 +33,9 @@ public class SolicitationTable {
     private Long managerId;
 
     @NotNull
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
 
-    private LocalDate authorizationDate;
+    private LocalDateTime authorizationDate;
 
     private boolean isAuthorized;
 }

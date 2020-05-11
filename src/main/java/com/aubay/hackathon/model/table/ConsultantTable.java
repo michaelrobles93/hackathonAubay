@@ -10,14 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
 @Builder
 @Entity(name = "CONSULTANT")
-public class ConsultantTable {
+public class    ConsultantTable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,6 +55,11 @@ public class ConsultantTable {
     @NotNull
     private boolean isAuthorized;
 
+    private Long views;
+
     @NotNull
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
+
+    @NotNull
+    private LocalDateTime lastView;
 }

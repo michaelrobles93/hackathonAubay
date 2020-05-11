@@ -42,4 +42,6 @@ public class UserTable {
 
     @NotNull
     private Long role;
+
+    private Long access;
 }

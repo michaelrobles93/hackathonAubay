@@ -17,9 +17,11 @@ public class ConsultantFilter {
 
     private List<String> expertises;
 
+    private List<String> languages;
+
     private String location;
 
-    private String availibity;
+    private String availability;
 
     private String seniority;
 }

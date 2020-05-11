@@ -9,4 +9,6 @@ public interface IUserService {
     Optional<UserCore> get(Long id);
 
     UserCore save(UserCore userCore);
+
+    Long getAllAccess();
 }

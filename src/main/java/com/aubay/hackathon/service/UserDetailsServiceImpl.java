@@ -1,6 +1,7 @@
 package com.aubay.hackathon.service;
 
 import com.aubay.hackathon.model.core.UserCore;
+import com.aubay.hackathon.model.table.UserTable;
 import com.aubay.hackathon.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.User;
@@ -26,6 +27,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserCore userCore = mapper.map(repository.findByEmail(username), UserCore.class);
+        userCore.setAccess(userCore.getAccess() + 1);
+        repository.save(mapper.map(userCore, UserTable.class));
         return new User(userCore.getEmail(), userCore.getPassword(), Collections.emptyList());
     }
 }

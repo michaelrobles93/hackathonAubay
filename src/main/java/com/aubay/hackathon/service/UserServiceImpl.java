@@ -46,4 +46,9 @@ public class UserServiceImpl implements IUserService {
 
         return mapper.map(repository.save(mapper.map(userCore, UserTable.class)), UserCore.class);
     }
+
+    @Override
+    public Long getAllAccess() {
+        return repository.getAllAccess();
+    }
 }
